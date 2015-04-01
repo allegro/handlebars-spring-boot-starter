@@ -1,0 +1,16 @@
+<FindBugsFilter>
+	<!-- Exclude model and in/out objects read/write through JSON or XML frameworks -->
+	<Match>
+		<OR>
+			<Package name="~pl\.allegro\..*"/>
+		</OR>
+
+		<Or>
+			<Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD"/>
+			<Bug pattern="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD"/>
+			<Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD"/>
+			<Bug pattern="UI_INHERITANCE_UNSAFE_GETRESOURCE"/>
+			<Bug category="STYLE"/>
+		</Or>
+	</Match>
+</FindBugsFilter>

@@ -1,0 +1,8 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+pl.allegro.offercore.tech.autoconfigure.handlebars.HandlebarsAutoConfiguration,\
+pl.allegro.offercore.tech.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration
+
+# Template availability providers
+org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider=\
+pl.allegro.offercore.tech.autoconfigure.handlebars.HandlebarsTemplateAvailabilityProvider
