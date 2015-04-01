@@ -71,3 +71,7 @@ codenarc {
     toolVersion = '0.23'
     configFile = new File("${projectDir}/config/codenarc/test-rules.groovy")
 }
+
+nexusStaging {
+    packageGroup = "pl.allegro.tech.boot"
+}
