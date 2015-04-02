@@ -19,6 +19,7 @@ plugins {
     id 'maven-publish'
     id 'nebula.optional-base' version '2.2.0'
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
+    id 'com.bmuschko.nexus' version '2.3.1'
 }
 
 apply plugin: 'errorprone'
@@ -33,7 +34,7 @@ project.group = 'pl.allegro.tech.boot'
 project.version = scmVersion.version
 
 allprojects {
-    sourceCompatibility = 1.6
+    sourceCompatibility = 1.7
 
     ext {
         handlebarsVersion = '2.0.0'
@@ -73,5 +74,34 @@ codenarc {
 }
 
 nexusStaging {
-    packageGroup = "pl.allegro.tech.boot"
+    packageGroup = "pl.allegro"
+}
+
+modifyPom {
+    project {
+        name 'Spring Boot Starter Handlebars'
+        description 'Spring Boot auto-configuration for Handlebars template engine'
+        url 'https://github.com/allegro/spring-boot-starter-handlebars'
+        inceptionYear '2015'
+
+        scm {
+            url 'https://github.com/allegro/spring-boot-starter-handlebars'
+            connection 'scm:git@github.com:allegro/spring-boot-starter-handlebars.git'
+            developerConnection 'scm:git@github.com:allegro/spring-boot-starter-handlebars.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+        }
+
+        developers {
+            developer {
+                id 'plesiecki'
+                name 'Paweł Lesiecki'
+            }
+        }
+    }
 }
