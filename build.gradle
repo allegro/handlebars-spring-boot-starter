@@ -103,5 +103,9 @@ modifyPom {
                 name 'Paweł Lesiecki'
             }
         }
+
+        project.optionalDeps.each { dep ->
+            dependencies.find { it.artifactId == dep.name }.optional = true
+        }
     }
 }
