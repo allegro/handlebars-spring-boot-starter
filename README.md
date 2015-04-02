@@ -1,6 +1,8 @@
 Spring Boot Starter Handlebars
 ====
 
+[![Build Status](https://travis-ci.org/allegro/spring-boot-starter-handlebars.svg)](https://travis-ci.org/allegro/spring-boot-starter-handlebars)
+
 Spring Boot Starter support for
 [Handlebars.java](https://github.com/jknack/handlebars.java)
 (logic-less templates).
