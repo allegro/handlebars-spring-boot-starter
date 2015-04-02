@@ -11,6 +11,10 @@ Spring Boot Starter support for
 
 Add `spring-boot-starter-handlebars` as dependency:
 ```gradle
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile 'pl.allegro.tech.boot:spring-boot-starter-handlebars:0.1.0'
 }
