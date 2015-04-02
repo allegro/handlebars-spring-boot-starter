@@ -1,12 +1,12 @@
-package pl.allegro.offercore.tech.autoconfigure.handlebars;
+package pl.allegro.tech.boot.autoconfigure.handlebars;
 
 import org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 
 import static org.springframework.util.ClassUtils.isPresent;
-import static pl.allegro.offercore.tech.autoconfigure.handlebars.HandlebarsProperties.DEFAULT_PREFIX;
-import static pl.allegro.offercore.tech.autoconfigure.handlebars.HandlebarsProperties.DEFAULT_SUFFIX;
+import static pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties.DEFAULT_PREFIX;
+import static pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties.DEFAULT_SUFFIX;
 
 public class HandlebarsTemplateAvailabilityProvider implements TemplateAvailabilityProvider {
 

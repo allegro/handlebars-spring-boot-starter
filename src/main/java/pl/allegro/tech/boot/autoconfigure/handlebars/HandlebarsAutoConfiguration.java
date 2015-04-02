@@ -1,4 +1,4 @@
-package pl.allegro.offercore.tech.autoconfigure.handlebars;
+package pl.allegro.tech.boot.autoconfigure.handlebars;
 
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.cache.GuavaTemplateCache;

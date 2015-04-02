@@ -1,4 +1,4 @@
-package pl.allegro.offercore.tech.autoconfigure.handlebars
+package pl.allegro.tech.boot.autoconfigure.handlebars
 
 import org.springframework.core.io.DefaultResourceLoader
 import org.springframework.mock.env.MockEnvironment

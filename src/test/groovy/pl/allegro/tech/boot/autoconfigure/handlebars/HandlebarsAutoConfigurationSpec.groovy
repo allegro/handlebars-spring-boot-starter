@@ -1,4 +1,4 @@
-package pl.allegro.offercore.tech.autoconfigure.handlebars
+package pl.allegro.tech.boot.autoconfigure.handlebars
 
 import static org.springframework.boot.test.EnvironmentTestUtils.addEnvironment
 import static org.springframework.web.servlet.support.RequestContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE
