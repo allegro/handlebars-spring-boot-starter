@@ -37,7 +37,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
 
     def 'should configure handlebars without cache'() {
         given:
-        'register and refresh context'('spring.handlebars.cache:false')
+        'register and refresh context'('handlebars.cache:false')
 
         expect:
         context.getBean(HandlebarsViewResolver).handlebars.cache instanceof NullTemplateCache
@@ -53,7 +53,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
 
     def 'should resolve view from custom classpath'() {
         given:
-        'register and refresh context'('spring.handlebars.prefix:classpath:views')
+        'register and refresh context'('handlebars.prefix:classpath:views')
 
         expect:
         render('prefixed').contentAsString == 'prefixed body'
@@ -61,7 +61,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
 
     def 'should resolve view with custom suffix'() {
         given:
-        'register and refresh context'('spring.handlebars.suffix:.html')
+        'register and refresh context'('handlebars.suffix:.html')
 
         expect:
         render('suffixed').contentAsString == 'suffixed body'
