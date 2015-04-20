@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.springframework.util.Assert.isInstanceOf;
 
-@ConfigurationProperties(prefix = "spring.handlebars")
+@ConfigurationProperties(prefix = "handlebars")
 @EnableConfigurationProperties(HandlebarsValueResolversProperties.class)
 public class HandlebarsProperties extends AbstractTemplateViewResolverProperties {
 

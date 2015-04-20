@@ -22,7 +22,7 @@ class HandlebarsTemplateAvailabilityProviderSpec extends Specification {
 
     def 'should find template with custom prefix'() {
         given:
-        environment.setProperty('spring.handlebars.prefix', 'classpath:views/')
+        environment.setProperty('handlebars.prefix', 'classpath:views/')
 
         expect:
         provider.isTemplateAvailable('prefixed', environment, this.class.classLoader, resourceLoader)
@@ -30,7 +30,7 @@ class HandlebarsTemplateAvailabilityProviderSpec extends Specification {
 
     def 'should find template with custom suffix'() {
         given:
-        environment.setProperty('spring.handlebars.suffix', '.html')
+        environment.setProperty('handlebars.suffix', '.html')
 
         expect:
         provider.isTemplateAvailable('suffixed', environment, this.class.classLoader, resourceLoader)

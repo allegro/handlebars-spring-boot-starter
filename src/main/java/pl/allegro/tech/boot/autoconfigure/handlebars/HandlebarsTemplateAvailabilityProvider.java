@@ -15,8 +15,8 @@ public class HandlebarsTemplateAvailabilityProvider implements TemplateAvailabil
         if (!isPresent("com.github.jknack.handlebars.Handlebars", classLoader)) {
             return false;
         }
-        String prefix = env.getProperty("spring.handlebars.prefix", DEFAULT_PREFIX);
-        String suffix = env.getProperty("spring.handlebars.suffix", DEFAULT_SUFFIX);
+        String prefix = env.getProperty("handlebars.prefix", DEFAULT_PREFIX);
+        String suffix = env.getProperty("handlebars.suffix", DEFAULT_SUFFIX);
 
         return resourceLoader.getResource(prefix + view + suffix).exists();
     }

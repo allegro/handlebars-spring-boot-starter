@@ -2,7 +2,7 @@ package pl.allegro.tech.boot.autoconfigure.handlebars;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "spring.handlebars.valueResolver")
+@ConfigurationProperties(prefix = "handlebars.resolver")
 public class HandlebarsValueResolversProperties {
 
     private Boolean map = true;

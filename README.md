@@ -1,8 +1,8 @@
 Spring Boot Starter Handlebars
 ====
 
-[![Build Status](https://travis-ci.org/allegro/spring-boot-starter-handlebars.svg)](https://travis-ci.org/allegro/spring-boot-starter-handlebars)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/spring-boot-starter-handlebars/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/spring-boot-starter-handlebars)
+[![Build Status](https://travis-ci.org/allegro/handlebars-spring-boot-starter.svg)](https://travis-ci.org/allegro/handlebars-spring-boot-starter)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/handlebars-spring-boot-starter/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/handlebars-spring-boot-starter)
 
 Spring Boot Starter support for
 [Handlebars.java](https://github.com/jknack/handlebars.java)
@@ -10,14 +10,14 @@ Spring Boot Starter support for
 
 ## Usage
 
-Add `spring-boot-starter-handlebars` as dependency:
+Add `handlebars-spring-boot-starter` as dependency:
 ```gradle
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'pl.allegro.tech.boot:spring-boot-starter-handlebars:0.1.1'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.0'
 }
 ```
 ## Helpers
@@ -40,25 +40,25 @@ More information about helpers can be found on
 
 ## Configuration
 
-Properties space is: `spring.handlebars`. All basic properties of
+Properties space is: `handlebars`. All basic properties of
 [AbstractTemplateViewResolverProperties.java](http://docs.spring.io/autorepo/docs/spring-boot/current/api/org/springframework/boot/autoconfigure/template/AbstractTemplateViewResolverProperties.html)
 are available.
 
 Default configuration:
 ```yaml
-spring.handlebars.prefix: classpath:templates/
-spring.handlebars.suffix: .hbs
-spring.handlebars.cache: true
+handlebars.prefix: classpath:templates/
+handlebars.suffix: .hbs
+handlebars.cache: true
 ```
 NOTE: `handlebars-guava-cache` is used as template cache implementation.
 
-`valueResolver` configuration allows on/off available handlebars value resolvers.
+`resolver` configuration allows on/off available handlebars value resolvers.
 Here goes default configuration:
 ```yaml
-spring.handlebars.valueResolver.javaBean: true
-spring.handlebars.valueResolver.map: true
-spring.handlebars.valueResolver.method: false
-spring.handlebars.valueResolver.field: false
+handlebars.resolver.javaBean: true
+handlebars.resolver.map: true
+handlebars.resolver.method: false
+handlebars.resolver.field: false
 ```
 More information about value resolvers can be found on
 [Using the ValueResolver](https://github.com/jknack/handlebars.java#using-the-valueresolver).
@@ -66,4 +66,4 @@ More information about value resolvers can be found on
 
 ## License
 
-**spring-boot-starter-handlebars** is published under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+**handlebars-spring-boot-starter** is published under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
