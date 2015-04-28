@@ -4,7 +4,6 @@ buildscript {
         classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.0'
         classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1'
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
     }
 }
 plugins {
@@ -17,10 +16,10 @@ plugins {
     id 'nebula.optional-base' version '2.2.0'
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
     id 'com.bmuschko.nexus' version '2.3.1'
+    id 'com.github.kt3k.coveralls' version '2.0.1'
 }
 apply plugin: 'errorprone'
 apply plugin: 'io.codearte.nexus-staging'
-apply plugin: 'com.github.kt3k.coveralls'
 
 scmVersion {
     tag { prefix = project.name }
