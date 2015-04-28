@@ -16,6 +16,7 @@ plugins {
     id 'nebula.optional-base' version '2.2.0'
     id 'pl.allegro.tech.build.axion-release' version '1.2.3'
     id 'com.bmuschko.nexus' version '2.3.1'
+    id 'com.github.kt3k.coveralls' version '2.0.1'
 }
 apply plugin: 'errorprone'
 apply plugin: 'io.codearte.nexus-staging'
@@ -59,6 +60,13 @@ checkstyle { toolVersion = '6.4.1' }
 codenarc {
     toolVersion = '0.23'
     configFile = new File("${projectDir}/config/codenarc/test-rules.groovy")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
 }
 
 nexusStaging { packageGroup = 'pl.allegro' }
