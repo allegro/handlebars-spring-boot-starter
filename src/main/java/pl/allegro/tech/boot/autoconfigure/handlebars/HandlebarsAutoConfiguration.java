@@ -27,6 +27,7 @@ public class HandlebarsAutoConfiguration {
         @Bean
         public HandlebarsViewResolver handlebarsViewResolver() {
             HandlebarsViewResolver handlebarsViewResolver = new HandlebarsViewResolver();
+            handlebarsViewResolver.setFailOnMissingFile(false);
             handlebars.applyToViewResolver(handlebarsViewResolver);
             return handlebarsViewResolver;
         }
