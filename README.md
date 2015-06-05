@@ -27,17 +27,21 @@ Spring Boot Starter Handlebars will automatically register handlebars helpers ba
 Add any handlebars helper to dependencies and you can start using it.
 ```gradle
 dependencies {
-    compile 'com.github.jknack:handlebars-helpers:2.0.0'
-    compile 'com.github.jknack:handlebars-jackson2:2.0.0'
-    compile 'com.github.jknack:handlebars-humanize:2.0.0'
-    compile 'com.github.jknack:handlebars-markdown:2.0.0'
+    compile 'com.github.jknack:handlebars-helpers:2.0.0',
+            'com.github.jknack:handlebars-jackson2:2.0.0',
+            'com.github.jknack:handlebars-humanize:2.0.0',
+            'com.github.jknack:handlebars-markdown:2.0.0'
 }
 ```
 NOTE: Jackson2Helper and MarkdownHelper will register with name `json` and `md` respectively.
 Every other helper will register with its default name.
 
-More information about helpers can be found on
-[Handlebars.java](https://github.com/jknack/handlebars.java).
+More information about available helpers can be found on
+[Handlebars.java](https://github.com/jknack/handlebars.java#helpers).
+
+### Custom helpers
+
+To register helper use @HandlebarsHelper annotation.
 
 ## Configuration
 

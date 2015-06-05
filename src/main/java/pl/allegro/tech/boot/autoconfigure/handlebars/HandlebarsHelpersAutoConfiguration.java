@@ -9,12 +9,18 @@ import com.github.jknack.handlebars.helper.JodaHelper;
 import com.github.jknack.handlebars.helper.NumberHelper;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.joda.time.format.DateTimeFormat;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.AnnotationUtils;
 
 import javax.annotation.PostConstruct;
+
+import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 
 @Configuration
 @ConditionalOnClass(HandlebarsViewResolver.class)
@@ -110,5 +116,24 @@ public class HandlebarsHelpersAutoConfiguration {
         public void registerHelpers() {
             handlebarsViewResolver.registerHelpers(JodaHelper.class);
         }
+    }
+
+    @Bean
+    public BeanPostProcessor handlebarsBeanPostProcessor(HandlebarsViewResolver handlebarsViewResolver) {
+        return new BeanPostProcessor() {
+            @Override
+            public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+                return bean;
+            }
+
+            @Override
+            public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+                HandlebarsHelper annotation = findAnnotation(bean.getClass(), HandlebarsHelper.class);
+                if (annotation != null) {
+                    handlebarsViewResolver.registerHelpers(bean);
+                }
+                return bean;
+            }
+        };
     }
 }
