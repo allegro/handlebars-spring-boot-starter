@@ -41,7 +41,7 @@ More information about available helpers can be found on
 
 ### Custom helpers
 
-To register helper use @HandlebarsHelper annotation.
+To register helper use [@HandlebarsHelper](src/main/java/pl/allegro/tech/boot/autoconfigure/handlebars/HandlebarsHelper.java) annotation.
 
 ## Configuration
 
