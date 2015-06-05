@@ -24,7 +24,7 @@ class HandlebarsCustomHelpersAutoConfigurationSpec extends Specification {
         context?.close()
     }
 
-    def 'should register helpers'() {
+    def 'should register helper'() {
         given:
         def resolver = context.getBean(HandlebarsViewResolver)
 

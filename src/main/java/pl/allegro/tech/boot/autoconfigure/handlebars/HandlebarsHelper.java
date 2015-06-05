@@ -11,6 +11,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Component
 public @interface HandlebarsHelper {
-
-    String value() default "";
 }
