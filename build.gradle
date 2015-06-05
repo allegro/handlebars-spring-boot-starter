@@ -30,7 +30,7 @@ project.version = scmVersion.version
 ext {
     jodaVersion = '2.8'
     spockVersion = '1.0-groovy-2.4'
-    handlebarsVersion= '2.2.0'
+    handlebarsVersion = '2.2.0'
     springBootVersion = '1.2.4.RELEASE'
 }
 
@@ -41,14 +41,14 @@ allprojects {
 }
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion,
-            'com.github.jknack:handlebars-springmvc:' + versionHandlebars,
-            'com.github.jknack:handlebars-guava-cache:' + versionHandlebars
+            'com.github.jknack:handlebars-springmvc:' + handlebarsVersion,
+            'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
 
     compile 'joda-time:joda-time:' + jodaVersion, optional
-    compile 'com.github.jknack:handlebars-helpers:' + versionHandlebars, optional
-    compile 'com.github.jknack:handlebars-humanize:' + versionHandlebars, optional
-    compile 'com.github.jknack:handlebars-markdown:' + versionHandlebars, optional
-    compile 'com.github.jknack:handlebars-jackson2:' + versionHandlebars, optional
+    compile 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
+    compile 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
+    compile 'com.github.jknack:handlebars-markdown:' + handlebarsVersion, optional
+    compile 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
     compile 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
     testCompile 'org.spockframework:spock-core:' + spockVersion,
