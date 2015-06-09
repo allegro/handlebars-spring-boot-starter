@@ -41,7 +41,19 @@ More information about available helpers can be found on
 
 ### Custom helpers
 
-To register helper use [@HandlebarsHelper](src/main/java/pl/allegro/tech/boot/autoconfigure/handlebars/HandlebarsHelper.java) annotation.
+To register a custom helper use [@HandlebarsHelper](src/main/java/pl/allegro/tech/boot/autoconfigure/handlebars/HandlebarsHelper.java) annotation.
+
+#### Example
+```java
+@HandlebarsHelper
+class CustomHelper {
+    CharSequence foo() {
+        return 'bar'
+    }
+}
+```
+
+More information about how to create custom helpers can be found on [Using a HelperSource](https://github.com/jknack/handlebars.java#using-a-helpersource)
 
 ## Configuration
 
