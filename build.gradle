@@ -1,8 +1,7 @@
 buildscript {
     repositories { mavenCentral() }
     dependencies {
-        classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.0'
-        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
+        classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.2'
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1'
     }
 }
@@ -13,12 +12,12 @@ plugins {
     id 'codenarc'
     id 'checkstyle'
     id 'maven-publish'
-    id 'nebula.optional-base' version '2.2.0'
-    id 'pl.allegro.tech.build.axion-release' version '1.2.3'
     id 'com.bmuschko.nexus' version '2.3.1'
-    id 'com.github.kt3k.coveralls' version '2.0.1'
+    id 'nebula.optional-base' version '2.2.2'
+    id 'net.ltgt.errorprone' version '0.0.7.1'
+    id 'com.github.kt3k.coveralls' version '2.4.0'
+    id 'pl.allegro.tech.build.axion-release' version '1.2.4'
 }
-apply plugin: 'errorprone'
 apply plugin: 'io.codearte.nexus-staging'
 
 scmVersion {
@@ -28,32 +27,37 @@ scmVersion {
 project.group = 'pl.allegro.tech.boot'
 project.version = scmVersion.version
 
+ext {
+    jodaVersion = '2.8'
+    spockVersion = '1.0-groovy-2.4'
+    handlebarsVersion = '2.2.0'
+    springBootVersion = '1.2.4.RELEASE'
+}
+
 allprojects {
     repositories { mavenCentral() }
-    ext {
-        handlebarsVersion = '2.0.0'
-        springBootVersion = '1.2.3.RELEASE'
-    }
     apply plugin: 'groovy'
     sourceCompatibility = 1.7
 }
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion
-    compile 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
-    compile 'com.github.jknack:handlebars-springmvc:' + handlebarsVersion
-    compile 'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
+    compile 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion,
+            'com.github.jknack:handlebars-springmvc:' + handlebarsVersion,
+            'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
+
+    compile 'joda-time:joda-time:' + jodaVersion, optional
     compile 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
     compile 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
     compile 'com.github.jknack:handlebars-markdown:' + handlebarsVersion, optional
     compile 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
-    compile 'joda-time:joda-time:2.7', optional
+    compile 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
-    testCompile 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
+    testCompile 'org.spockframework:spock-core:' + spockVersion,
+                'org.spockframework:spock-spring:' + spockVersion,
+                'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
 }
 compileJava.dependsOn(processResources)
 
-task wrapper(type: Wrapper) { gradleVersion = '2.3' }
+task wrapper(type: Wrapper) { gradleVersion = '2.4' }
 
 checkstyle { toolVersion = '6.4.1' }
 
@@ -69,7 +73,11 @@ jacocoTestReport {
     }
 }
 
-nexusStaging { packageGroup = 'pl.allegro' }
+nexusStaging {
+    packageGroup = 'pl.allegro'
+    numberOfRetries = 15
+    delayBetweenRetriesInMillis = 5000
+}
 
 modifyPom {
     project {
