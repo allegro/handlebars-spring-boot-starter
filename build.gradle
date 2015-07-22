@@ -30,7 +30,7 @@ project.version = scmVersion.version
 ext {
     jodaVersion = '2.8'
     spockVersion = '1.0-groovy-2.4'
-    handlebarsVersion = '2.2.0'
+    handlebarsVersion = '2.2.3'
     springBootVersion = '1.2.4.RELEASE'
 }
 
@@ -57,7 +57,7 @@ dependencies {
 }
 compileJava.dependsOn(processResources)
 
-task wrapper(type: Wrapper) { gradleVersion = '2.4' }
+task wrapper(type: Wrapper) { gradleVersion = '2.5' }
 
 checkstyle { toolVersion = '6.4.1' }
 
