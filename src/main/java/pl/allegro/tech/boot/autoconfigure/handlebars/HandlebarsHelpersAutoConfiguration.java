@@ -7,6 +7,7 @@ import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.IncludeHelper;
 import com.github.jknack.handlebars.helper.JodaHelper;
 import com.github.jknack.handlebars.helper.NumberHelper;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.BeansException;
@@ -114,6 +115,19 @@ public class HandlebarsHelpersAutoConfiguration {
         @PostConstruct
         public void registerHelpers() {
             handlebarsViewResolver.registerHelpers(JodaHelper.class);
+        }
+    }
+
+    @Configuration
+    @ConditionalOnClass(StringHelpers.class)
+    static class StringHelpersAutoConfiguration {
+
+        @Autowired
+        private HandlebarsViewResolver handlebarsViewResolver;
+
+        @PostConstruct
+        public void registerHelpers() {
+            StringHelpers.register(handlebarsViewResolver.getHandlebars());
         }
     }
 

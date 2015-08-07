@@ -43,6 +43,14 @@ More information about available helpers can be found on
 
 To register a custom helper use [@HandlebarsHelper](src/main/java/pl/allegro/tech/boot/autoconfigure/handlebars/HandlebarsHelper.java) annotation.
 
+### Custom cache template
+
+Set handlebars template cache by bean of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java)
+
+### Custom template loader
+
+Set handlebars template loader by bean of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java)
+
 #### Example
 ```java
 @HandlebarsHelper
@@ -66,6 +74,9 @@ Default configuration:
 handlebars.prefix: classpath:templates/
 handlebars.suffix: .hbs
 handlebars.cache: true
+handlebars.registerMessageHelper: true
+handlebars.failOnMissingFile: false
+handlebars.prettyPrint: false
 ```
 NOTE: `handlebars-guava-cache` is used as template cache implementation.
 

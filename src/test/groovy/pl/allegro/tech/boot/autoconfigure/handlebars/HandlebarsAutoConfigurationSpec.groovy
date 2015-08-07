@@ -4,13 +4,16 @@ import static org.springframework.boot.test.EnvironmentTestUtils.addEnvironment
 import static org.springframework.web.servlet.support.RequestContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE
 
 import com.github.jknack.handlebars.cache.GuavaTemplateCache
+import com.github.jknack.handlebars.cache.HighConcurrencyTemplateCache
 import com.github.jknack.handlebars.cache.NullTemplateCache
+import com.github.jknack.handlebars.io.ClassPathTemplateLoader
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
+import com.github.jknack.handlebars.springmvc.SpringTemplateLoader
+import org.springframework.context.annotation.Bean
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-import org.springframework.web.servlet.ViewResolver
 import spock.lang.Specification
 
 class HandlebarsAutoConfigurationSpec extends Specification {
@@ -29,18 +32,60 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         given:
         'register and refresh context'()
 
-        expect:
-        context.getBeanNamesForType(ViewResolver).length == 1
-        context.getBean(ViewResolver) instanceof HandlebarsViewResolver
-        context.getBean(HandlebarsViewResolver).handlebars.cache instanceof GuavaTemplateCache
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.cache instanceof GuavaTemplateCache
+        resolver.handlebars.loader instanceof SpringTemplateLoader
+        resolver.helper('message')
+        !resolver.failOnMissingFile
     }
 
     def 'should configure handlebars without cache'() {
         given:
         'register and refresh context'('handlebars.cache:false')
 
-        expect:
-        context.getBean(HandlebarsViewResolver).handlebars.cache instanceof NullTemplateCache
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.cache instanceof NullTemplateCache
+    }
+
+    def 'should configure handlebars with custom template cache'() {
+        given:
+        context.register(CustomConfiguration)
+        'register and refresh context'()
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.cache instanceof HighConcurrencyTemplateCache
+    }
+
+    def 'should configure handlebars with pretty print'() {
+        given:
+        'register and refresh context'('handlebars.prettyPrint:true')
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.prettyPrint
+    }
+
+    def 'should configure handlebars with custom template loader'() {
+        given:
+        context.register(CustomConfiguration)
+        'register and refresh context'()
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.loader instanceof ClassPathTemplateLoader
     }
 
     def 'should resolve view'() {
@@ -82,5 +127,17 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         def response = new MockHttpServletResponse()
         view.render(null, request, response)
         response
+    }
+}
+
+class CustomConfiguration {
+    @Bean
+    HighConcurrencyTemplateCache cache() {
+        new HighConcurrencyTemplateCache()
+    }
+
+    @Bean
+    ClassPathTemplateLoader loader() {
+        new ClassPathTemplateLoader()
     }
 }
