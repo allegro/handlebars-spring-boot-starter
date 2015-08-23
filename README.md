@@ -43,14 +43,6 @@ More information about available helpers can be found on
 
 To register a custom helper use [@HandlebarsHelper](src/main/java/pl/allegro/tech/boot/autoconfigure/handlebars/HandlebarsHelper.java) annotation.
 
-### Custom cache template
-
-Set handlebars template cache by bean of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java)
-
-### Custom template loader
-
-Set handlebars template loader by bean of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java)
-
 #### Example
 ```java
 @HandlebarsHelper
@@ -60,7 +52,6 @@ class CustomHelper {
     }
 }
 ```
-
 More information about how to create custom helpers can be found on [Using a HelperSource](https://github.com/jknack/handlebars.java#using-a-helpersource)
 
 ## Configuration
@@ -91,6 +82,13 @@ handlebars.resolver.field: false
 More information about value resolvers can be found on
 [Using the ValueResolver](https://github.com/jknack/handlebars.java#using-the-valueresolver).
 
+### Custom cache template
+
+Set handlebars template cache by `@Bean` of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java)
+
+### Custom template loader
+
+Set handlebars template loader by `@Bean` of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java)
 
 ## License
 
