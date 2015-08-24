@@ -84,11 +84,11 @@ More information about value resolvers can be found on
 
 ### Custom cache template
 
-Set handlebars template cache by `@Bean` of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java)
+Set handlebars template cache by `@Bean` of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java). 
 
 ### Custom template loader
 
-Set handlebars template loader by `@Bean` of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java)
+Set handlebars template loader by `@Bean` of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java). 
 
 ## License
 
