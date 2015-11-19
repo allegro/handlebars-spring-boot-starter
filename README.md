@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.6'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.9'
 }
 ```
 ## Helpers
@@ -27,10 +27,10 @@ Spring Boot Starter Handlebars will automatically register handlebars helpers ba
 Add any handlebars helper to dependencies and you can start using it.
 ```gradle
 dependencies {
-    compile 'com.github.jknack:handlebars-helpers:2.3.1',
-            'com.github.jknack:handlebars-jackson2:2.3.1',
-            'com.github.jknack:handlebars-humanize:2.3.1',
-            'com.github.jknack:handlebars-markdown:2.3.1'
+    compile 'com.github.jknack:handlebars-helpers:4.0.1',
+            'com.github.jknack:handlebars-jackson2:4.0.1',
+            'com.github.jknack:handlebars-humanize:4.0.1',
+            'com.github.jknack:handlebars-markdown:4.0.1'
 }
 ```
 NOTE: Jackson2Helper and MarkdownHelper will register with name `json` and `md` respectively.
@@ -84,11 +84,11 @@ More information about value resolvers can be found on
 
 ### Custom cache template
 
-Set handlebars template cache by `@Bean` of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java). 
+Set handlebars template cache by `@Bean` of type [TemplateCache](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/cache/TemplateCache.java).
 
 ### Custom template loader
 
-Set handlebars template loader by `@Bean` of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java). 
+Set handlebars template loader by `@Bean` of type [TemplateLoader](https://github.com/jknack/handlebars.java/blob/master/handlebars/src/main/java/com/github/jknack/handlebars/io/TemplateLoader.java).
 
 ## License
 
