@@ -62,6 +62,7 @@ are available.
 
 Default configuration:
 ```yaml
+handlebars.enabled: true
 handlebars.prefix: classpath:templates/
 handlebars.suffix: .hbs
 handlebars.cache: true

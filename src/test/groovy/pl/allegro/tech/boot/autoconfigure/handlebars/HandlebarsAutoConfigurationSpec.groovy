@@ -9,6 +9,7 @@ import com.github.jknack.handlebars.cache.NullTemplateCache
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import com.github.jknack.handlebars.springmvc.SpringTemplateLoader
+import org.springframework.beans.factory.NoSuchBeanDefinitionException
 import org.springframework.context.annotation.Bean
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
@@ -40,6 +41,50 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         resolver.handlebars.loader instanceof SpringTemplateLoader
         resolver.helper('message')
         !resolver.failOnMissingFile
+    }
+
+    def 'not enabled handlebars'() {
+        given:
+        'register and refresh context'('handlebars.enabled=false')
+
+        when:
+        context.getBean(HandlebarsViewResolver)
+
+        then:
+        thrown NoSuchBeanDefinitionException
+    }
+
+    def 'not enabled handlebars with wrong property'() {
+        given:
+        'register and refresh context'('handlebars.enabled=')
+
+        when:
+        context.getBean(HandlebarsViewResolver)
+
+        then:
+        thrown NoSuchBeanDefinitionException
+    }
+
+    def 'enabled handlebars with property'() {
+        given:
+        'register and refresh context'('handlebars.enabled=true')
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver instanceof HandlebarsViewResolver
+    }
+
+    def 'enabled handlebars'() {
+        given:
+        'register and refresh context'()
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver instanceof HandlebarsViewResolver
     }
 
     def 'should configure handlebars without cache'() {
