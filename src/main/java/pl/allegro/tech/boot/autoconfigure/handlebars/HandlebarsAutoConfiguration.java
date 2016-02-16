@@ -19,6 +19,7 @@ import javax.annotation.PostConstruct;
 
 import static com.google.common.cache.CacheBuilder.newBuilder;
 
+@ConditionalOnProperty(prefix = "handlebars", value = "enabled", havingValue = "true", matchIfMissing = true)
 @Configuration
 @EnableConfigurationProperties(HandlebarsProperties.class)
 @ConditionalOnWebApplication
