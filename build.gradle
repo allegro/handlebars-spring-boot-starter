@@ -29,8 +29,8 @@ project.version = scmVersion.version
 ext {
     jodaVersion = '2.8'
     spockVersion = '1.0-groovy-2.4'
-    handlebarsVersion = '4.0.3'
-    springBootVersion = '1.3.1.RELEASE'
+    handlebarsVersion = '4.0.4'
+    springBootVersion = '1.3.2.RELEASE'
 }
 
 allprojects {
