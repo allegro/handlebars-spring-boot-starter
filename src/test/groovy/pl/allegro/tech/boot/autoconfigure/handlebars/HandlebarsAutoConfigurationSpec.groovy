@@ -138,7 +138,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         'register and refresh context'()
 
         expect:
-        render('hello').contentAsString == 'hello world'
+        render('hello', [foo: '<script>alert(1);</script>']).contentAsString == 'hello world\n&lt;script&gt;alert(1);&lt;/script&gt;\n'
     }
 
     def 'should resolve view from custom classpath'() {
@@ -146,7 +146,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         'register and refresh context'('handlebars.prefix:classpath:views')
 
         expect:
-        render('prefixed').contentAsString == 'prefixed body'
+        render('prefixed', [] as Map).contentAsString == 'prefixed body'
     }
 
     def 'should resolve view with custom suffix'() {
@@ -154,7 +154,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         'register and refresh context'('handlebars.suffix:.html')
 
         expect:
-        render('suffixed').contentAsString == 'suffixed body'
+        render('suffixed', [] as Map).contentAsString == 'suffixed body'
     }
 
     def 'register and refresh context'(String... env) {
@@ -163,14 +163,14 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         context.refresh()
     }
 
-    def render(String viewName) throws Exception {
+    def render(String viewName, Map model) throws Exception {
         def resolver = context.getBean(HandlebarsViewResolver)
         def view = resolver.resolveViewName(viewName, Locale.UK)
         assert view
         def request = new MockHttpServletRequest()
         request.setAttribute(WEB_APPLICATION_CONTEXT_ATTRIBUTE, context)
         def response = new MockHttpServletResponse()
-        view.render(null, request, response)
+        view.render(model, request, response)
         response
     }
 }
