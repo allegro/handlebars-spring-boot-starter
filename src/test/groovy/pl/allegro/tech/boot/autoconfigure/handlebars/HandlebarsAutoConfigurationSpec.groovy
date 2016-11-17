@@ -121,6 +121,17 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         resolver.handlebars.prettyPrint
     }
 
+    def 'should configure handlebars with infinite loops'() {
+        given:
+        'register and refresh context'('handlebars.infiniteLoops:true')
+
+        when:
+        def resolver = context.getBean(HandlebarsViewResolver)
+
+        then:
+        resolver.handlebars.infiniteLoops
+    }
+
     def 'should configure handlebars with custom template loader'() {
         given:
         context.register(CustomConfiguration)

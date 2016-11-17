@@ -86,4 +86,16 @@ public class HandlebarsAutoConfiguration {
             handlebarsViewResolver.getHandlebars().prettyPrint(true);
         }
     }
+
+    @Configuration
+    @ConditionalOnProperty("handlebars.infiniteLoops")
+    protected static class InfiniteLoopsConfiguration {
+        @Autowired
+        private HandlebarsViewResolver handlebarsViewResolver;
+
+        @PostConstruct
+        public void setInfiniteLoops() {
+            handlebarsViewResolver.getHandlebars().infiniteLoops(true);
+        }
+    }
 }
