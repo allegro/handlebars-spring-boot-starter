@@ -69,6 +69,7 @@ handlebars.cache: true
 handlebars.registerMessageHelper: true
 handlebars.failOnMissingFile: false
 handlebars.prettyPrint: false
+handlebars.infiniteLoops: false
 ```
 NOTE: `handlebars-guava-cache` is used as template cache implementation.
 
