@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.13'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.14'
 }
 ```
 ## Helpers
