@@ -41,6 +41,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
         resolver.handlebars.loader instanceof SpringTemplateLoader
         resolver.helper('message')
         !resolver.failOnMissingFile
+        !resolver.bindI18nToMessageSource
     }
 
     def 'not enabled handlebars'() {

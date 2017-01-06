@@ -68,6 +68,7 @@ handlebars.suffix: .hbs
 handlebars.cache: true
 handlebars.registerMessageHelper: true
 handlebars.failOnMissingFile: false
+handlebars.bindI18nToMessageSource: false
 handlebars.prettyPrint: false
 handlebars.infiniteLoops: false
 ```

@@ -26,6 +26,7 @@ public class HandlebarsProperties extends AbstractTemplateViewResolverProperties
 
     private Boolean registerMessageHelper = true;
     private Boolean failOnMissingFile = false;
+    private Boolean bindI18nToMessageSource = false;
 
     private final HandlebarsValueResolversProperties valueResolversProperties;
 
@@ -53,6 +54,7 @@ public class HandlebarsProperties extends AbstractTemplateViewResolverProperties
         resolver.setValueResolvers(listToArray(valueResolvers));
         resolver.setRegisterMessageHelper(registerMessageHelper);
         resolver.setFailOnMissingFile(failOnMissingFile);
+        resolver.setBindI18nToMessageSource(bindI18nToMessageSource);
     }
 
     public void setRegisterMessageHelper(Boolean registerMessageHelper) {
@@ -61,6 +63,10 @@ public class HandlebarsProperties extends AbstractTemplateViewResolverProperties
 
     public void setFailOnMissingFile(Boolean failOnMissingFile) {
         this.failOnMissingFile = failOnMissingFile;
+    }
+
+    public void setBindI18nToMessageSource(Boolean bindI18nToMessageSource) {
+        this.bindI18nToMessageSource = bindI18nToMessageSource;
     }
 
     private void addValueResolverIfNeeded(List<ValueResolver> resolvers, boolean property, ValueResolver resolver) {
