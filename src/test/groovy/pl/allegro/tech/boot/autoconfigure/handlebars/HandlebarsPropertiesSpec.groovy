@@ -23,6 +23,7 @@ class HandlebarsPropertiesSpec extends Specification {
         viewResolver.valueResolvers.contains(MapValueResolver.INSTANCE)
         viewResolver.registerMessageHelper
         !viewResolver.failOnMissingFile
+        !viewResolver.bindI18nToMessageSource
     }
 
     def 'should not register message helper'() {
@@ -51,6 +52,20 @@ class HandlebarsPropertiesSpec extends Specification {
 
         then:
         viewResolver.failOnMissingFile
+    }
+
+    def 'should bind i18n to message source'() {
+        given:
+        def properties = new HandlebarsProperties(new HandlebarsValueResolversProperties())
+
+        and:
+        properties.bindI18nToMessageSource = true
+
+        when:
+        properties.applyToViewResolver(viewResolver)
+
+        then:
+        viewResolver.bindI18nToMessageSource
     }
 
     def 'should set value resolvers based on configuration'() {
