@@ -33,7 +33,7 @@ public class HandlebarsAutoConfiguration {
         @Bean
         public HandlebarsViewResolver handlebarsViewResolver() {
             HandlebarsViewResolver handlebarsViewResolver = new HandlebarsViewResolver();
-            handlebars.applyToViewResolver(handlebarsViewResolver);
+            handlebars.applyToMvcViewResolver(handlebarsViewResolver);
             return handlebarsViewResolver;
         }
     }

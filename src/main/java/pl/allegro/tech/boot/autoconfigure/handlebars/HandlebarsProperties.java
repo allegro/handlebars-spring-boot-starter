@@ -38,8 +38,8 @@ public class HandlebarsProperties extends AbstractTemplateViewResolverProperties
     }
 
     @Override
-    public void applyToViewResolver(Object viewResolver) {
-        super.applyToViewResolver(viewResolver);
+    public void applyToMvcViewResolver(Object viewResolver) {
+        super.applyToMvcViewResolver(viewResolver);
         isInstanceOf(HandlebarsViewResolver.class, viewResolver,
                 "ViewResolver is not an instance of HandlebarsViewResolver :" + viewResolver);
         HandlebarsViewResolver resolver = (HandlebarsViewResolver) viewResolver;

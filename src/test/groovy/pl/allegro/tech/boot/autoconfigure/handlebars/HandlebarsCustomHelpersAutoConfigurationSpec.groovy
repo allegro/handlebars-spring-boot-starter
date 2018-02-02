@@ -1,6 +1,6 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars
 
-import static org.springframework.boot.test.EnvironmentTestUtils.addEnvironment
+import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
 
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import org.springframework.mock.web.MockServletContext

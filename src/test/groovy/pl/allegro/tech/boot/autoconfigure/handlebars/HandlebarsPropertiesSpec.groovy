@@ -15,7 +15,7 @@ class HandlebarsPropertiesSpec extends Specification {
         def properties = new HandlebarsProperties(new HandlebarsValueResolversProperties())
 
         when:
-        properties.applyToViewResolver(viewResolver)
+        properties.applyToMvcViewResolver(viewResolver)
 
         then:
         viewResolver.valueResolvers.length == 2
@@ -34,7 +34,7 @@ class HandlebarsPropertiesSpec extends Specification {
         properties.registerMessageHelper = false
 
         when:
-        properties.applyToViewResolver(viewResolver)
+        properties.applyToMvcViewResolver(viewResolver)
 
         then:
         !viewResolver.helper('message')
@@ -48,7 +48,7 @@ class HandlebarsPropertiesSpec extends Specification {
         properties.failOnMissingFile = true
 
         when:
-        properties.applyToViewResolver(viewResolver)
+        properties.applyToMvcViewResolver(viewResolver)
 
         then:
         viewResolver.failOnMissingFile
@@ -62,7 +62,7 @@ class HandlebarsPropertiesSpec extends Specification {
         properties.bindI18nToMessageSource = true
 
         when:
-        properties.applyToViewResolver(viewResolver)
+        properties.applyToMvcViewResolver(viewResolver)
 
         then:
         viewResolver.bindI18nToMessageSource
@@ -74,7 +74,7 @@ class HandlebarsPropertiesSpec extends Specification {
         def properties = new HandlebarsProperties(new HandlebarsValueResolversProperties(configuration))
 
         when:
-        properties.applyToViewResolver(viewResolver)
+        properties.applyToMvcViewResolver(viewResolver)
 
         then:
         viewResolver.valueResolvers.size() == 1

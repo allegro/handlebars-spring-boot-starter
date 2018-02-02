@@ -5,7 +5,7 @@ import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 import spock.lang.Specification
 
-import static org.springframework.boot.test.EnvironmentTestUtils.addEnvironment
+import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
 
 class HandlebarsHelpersDependenciesSpec extends Specification {
 

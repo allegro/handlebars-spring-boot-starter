@@ -30,11 +30,14 @@ ext {
     jodaVersion = '2.8'
     spockVersion = '1.0-groovy-2.4'
     handlebarsVersion = '4.0.6'
-    springBootVersion = '1.3.2.RELEASE'
+    springBootVersion = '2.0.0.M7'
 }
 
 allprojects {
-    repositories { mavenCentral() }
+    repositories {
+        mavenCentral()
+        maven { url "http://repo.spring.io/libs-milestone" }
+    }
     apply plugin: 'groovy'
     sourceCompatibility = 1.7
 }

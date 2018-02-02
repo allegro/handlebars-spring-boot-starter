@@ -1,6 +1,6 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars
 
-import static org.springframework.boot.test.EnvironmentTestUtils.addEnvironment
+import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
 import static org.springframework.web.servlet.support.RequestContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE
 
 import com.github.jknack.handlebars.cache.GuavaTemplateCache
