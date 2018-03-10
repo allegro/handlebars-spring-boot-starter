@@ -21,6 +21,11 @@ dependencies {
     compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
 }
 ```
+
+## Requirements
+
+Since version 0.3.0 handlebars-spring-boot-starter requires Spring Boot 2.0, Spring Framework 5 and Java 8.
+
 ## Helpers
 
 Spring Boot Starter Handlebars will automatically register handlebars helpers based on project dependencies.
