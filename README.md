@@ -3,7 +3,7 @@ Spring Boot Starter Handlebars
 
 [![Build Status](https://travis-ci.org/allegro/handlebars-spring-boot-starter.svg?branch=master)](https://travis-ci.org/allegro/handlebars-spring-boot-starter)
 [![Coverage Status](https://coveralls.io/repos/allegro/handlebars-spring-boot-starter/badge.svg)](https://coveralls.io/r/allegro/handlebars-spring-boot-starter)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/handlebars-spring-boot-starter/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.allegro.tech.boot/handlebars-spring-boot-starter)
+![Maven Central](https://img.shields.io/maven-central/v/pl.allegro.tech.boot/handlebars-spring-boot-starter.svg)
 
 Spring Boot Starter support for
 [Handlebars.java](https://github.com/jknack/handlebars.java)
