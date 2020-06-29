@@ -27,10 +27,10 @@ project.group = 'pl.allegro.tech.boot'
 project.version = scmVersion.version
 
 ext {
-    jodaVersion = '2.8'
-    spockVersion = '1.0-groovy-2.4'
-    handlebarsVersion = '4.0.7'
-    springBootVersion = '2.0.0.RELEASE'
+    jodaVersion = '2.10.6'
+    spockVersion = '2.0-M3-groovy-3.0'
+    handlebarsVersion = '4.2.0'
+    springBootVersion = '2.3.1.RELEASE'
 }
 
 allprojects {
