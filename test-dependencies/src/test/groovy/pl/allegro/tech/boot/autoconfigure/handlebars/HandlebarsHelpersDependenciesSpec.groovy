@@ -5,15 +5,13 @@ import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 import spock.lang.Specification
 
-import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
-
 class HandlebarsHelpersDependenciesSpec extends Specification {
 
     def context = new AnnotationConfigWebApplicationContext()
 
     def setup() {
         context.servletContext = new MockServletContext()
-        addEnvironment(context)
+        TestPropertyValues.empty().applyTo(context);
         context.register(HandlebarsAutoConfiguration)
         context.register(HandlebarsHelpersAutoConfiguration)
         context.refresh()

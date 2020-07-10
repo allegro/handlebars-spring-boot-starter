@@ -1,6 +1,5 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars
 
-import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
 import static org.springframework.web.servlet.support.RequestContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE
 
 import com.github.jknack.handlebars.cache.GuavaTemplateCache
@@ -170,7 +169,7 @@ class HandlebarsAutoConfigurationSpec extends Specification {
     }
 
     def 'register and refresh context'(String... env) {
-        addEnvironment(context, env)
+        TestPropertyValues.of(env).applyTo(context)
         context.register(HandlebarsAutoConfiguration)
         context.refresh()
     }
