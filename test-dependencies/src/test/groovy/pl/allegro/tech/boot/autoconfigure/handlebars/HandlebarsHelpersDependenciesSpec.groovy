@@ -11,7 +11,7 @@ class HandlebarsHelpersDependenciesSpec extends Specification {
 
     def setup() {
         context.servletContext = new MockServletContext()
-        TestPropertyValues.empty().applyTo(context);
+        TestPropertyValues.empty().applyTo(context)
         context.register(HandlebarsAutoConfiguration)
         context.register(HandlebarsHelpersAutoConfiguration)
         context.refresh()
