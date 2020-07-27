@@ -1,7 +1,5 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars
 
-import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment
-
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
@@ -13,7 +11,7 @@ class HandlebarsCustomHelpersAutoConfigurationSpec extends Specification {
 
     def setup() {
         context.servletContext = new MockServletContext()
-        addEnvironment(context)
+        TestPropertyValues.empty().applyTo(context)
         context.register(HandlebarsAutoConfiguration)
         context.register(HandlebarsHelpersAutoConfiguration)
         context.register(CustomHelper)

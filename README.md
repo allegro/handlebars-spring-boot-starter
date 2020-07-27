@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.2'
 }
 ```
 
@@ -32,10 +32,10 @@ Spring Boot Starter Handlebars will automatically register handlebars helpers ba
 Add any handlebars helper to dependencies and you can start using it.
 ```gradle
 dependencies {
-    compile 'com.github.jknack:handlebars-helpers:4.0.7',
-            'com.github.jknack:handlebars-jackson2:4.0.7',
-            'com.github.jknack:handlebars-humanize:4.0.7',
-            'com.github.jknack:handlebars-markdown:4.0.7'
+    compile 'com.github.jknack:handlebars-helpers:4.2.0',
+            'com.github.jknack:handlebars-jackson2:4.2.0',
+            'com.github.jknack:handlebars-humanize:4.2.0',
+            'com.github.jknack:handlebars-markdown:4.2.0'
 }
 ```
 NOTE: Jackson2Helper and MarkdownHelper will register with name `json` and `md` respectively.
