@@ -63,7 +63,7 @@ task wrapper(type: Wrapper) { gradleVersion = '2.9' }
 checkstyle { toolVersion = '6.4.1' }
 
 codenarc {
-    toolVersion = '0.23'
+    toolVersion = '1.0'
     configFile = new File("${projectDir}/config/codenarc/test-rules.groovy")
 }
 
