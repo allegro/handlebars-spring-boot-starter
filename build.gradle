@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'io.codearte.nexus-staging'
 
 scmVersion {
-    tag { prefix = project.name }
+    tag { prefix = project.name + '-' }
     versionCreator 'versionWithBranch'
 }
 project.group = 'pl.allegro.tech.boot'
@@ -57,8 +57,6 @@ dependencies {
                 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
 }
 compileJava.dependsOn(processResources)
-
-task wrapper(type: Wrapper) { gradleVersion = '6.9' }
 
 checkstyle { toolVersion = '8.43' }
 
