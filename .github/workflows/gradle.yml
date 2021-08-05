@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: '2'
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
