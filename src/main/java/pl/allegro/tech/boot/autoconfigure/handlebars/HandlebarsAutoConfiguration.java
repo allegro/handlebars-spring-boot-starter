@@ -44,12 +44,12 @@ public class HandlebarsAutoConfiguration {
         private HandlebarsViewResolver handlebarsViewResolver;
 
         @Autowired
-        private TemplateCache templateCache;
+        private TemplateCache templateCacheInstance;
 
         @PostConstruct
         public void setCachingStrategy() {
             if (handlebarsViewResolver.isCache()) {
-                handlebarsViewResolver.getHandlebars().with(templateCache);
+                handlebarsViewResolver.getHandlebars().with(templateCacheInstance);
             }
         }
 

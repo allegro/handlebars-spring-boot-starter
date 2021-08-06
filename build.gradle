@@ -15,7 +15,7 @@ plugins {
     id 'com.bmuschko.nexus' version '2.3.1'
     id 'nebula.optional-base' version '6.0.0'
     id 'com.github.kt3k.coveralls' version '2.12.0'
-    id 'pl.allegro.tech.build.axion-release' version '1.13.2'
+    id 'pl.allegro.tech.build.axion-release' version '1.13.3'
 }
 apply plugin: 'io.codearte.nexus-staging'
 
@@ -30,7 +30,7 @@ ext {
     jodaVersion = '2.10.10'
     spockVersion = '2.0-groovy-3.0'
     handlebarsVersion = '4.2.0'
-    springBootVersion = '2.5.1'
+    springBootVersion = '2.5.3'
 }
 
 allprojects {
@@ -58,11 +58,30 @@ dependencies {
 }
 compileJava.dependsOn(processResources)
 
-checkstyle { toolVersion = '8.43' }
+checkstyle { toolVersion = '8.45' }
 
 codenarc {
     toolVersion = '2.1.0'
     configFile = new File("${projectDir}/config/codenarc/test-rules.groovy")
+}
+
+codenarcTest {
+	ignoreFailures true
+}
+
+pmd {
+    rulesMinimumPriority.set(2)
+    ruleSets = [
+		"category/java/bestpractices.xml",
+		"category/java/codestyle.xml",
+		"category/java/design.xml",
+		"category/java/errorprone.xml",	
+		"category/java/performance.xml"
+	]
+}
+
+spotbugsTest {
+	spotbugsTest.enabled = false
 }
 
 jacocoTestReport {
