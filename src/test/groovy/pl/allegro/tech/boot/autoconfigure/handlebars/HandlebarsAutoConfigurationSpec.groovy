@@ -9,6 +9,7 @@ import com.github.jknack.handlebars.io.ClassPathTemplateLoader
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import com.github.jknack.handlebars.springmvc.SpringTemplateLoader
 import org.springframework.beans.factory.NoSuchBeanDefinitionException
+import org.springframework.boot.test.util.TestPropertyValues
 import org.springframework.context.annotation.Bean
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse

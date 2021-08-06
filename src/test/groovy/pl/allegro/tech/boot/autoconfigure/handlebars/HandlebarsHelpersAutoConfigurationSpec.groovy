@@ -1,6 +1,7 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars
 
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
+import org.springframework.boot.test.util.TestPropertyValues
 import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 import spock.lang.Specification
