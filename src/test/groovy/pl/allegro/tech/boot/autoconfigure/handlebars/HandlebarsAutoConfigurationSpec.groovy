@@ -14,6 +14,7 @@ import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+import org.springframework.boot.test.util.TestPropertyValues;
 import spock.lang.Specification
 
 class HandlebarsAutoConfigurationSpec extends Specification {

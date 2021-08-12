@@ -3,6 +3,7 @@ package pl.allegro.tech.boot.autoconfigure.handlebars
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import org.springframework.mock.web.MockServletContext
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+import org.springframework.boot.test.util.TestPropertyValues;
 import spock.lang.Specification
 
 class HandlebarsCustomHelpersAutoConfigurationSpec extends Specification {
