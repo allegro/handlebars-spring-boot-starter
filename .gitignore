@@ -19,3 +19,9 @@ target
 # netbeans
 .nb-gradle
 .nb-gradle-properties
+
+# eclipse project
+bin/
+.classpath
+.project
+.settings/
