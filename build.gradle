@@ -66,22 +66,22 @@ codenarc {
 }
 
 codenarcTest {
-	ignoreFailures true
+    ignoreFailures true
 }
 
 pmd {
     rulesMinimumPriority.set(2)
     ruleSets = [
-		"category/java/bestpractices.xml",
-		"category/java/codestyle.xml",
-		"category/java/design.xml",
-		"category/java/errorprone.xml",	
-		"category/java/performance.xml"
-	]
+            "category/java/bestpractices.xml",
+            "category/java/codestyle.xml",
+            "category/java/design.xml",
+            "category/java/errorprone.xml",
+            "category/java/performance.xml"
+    ]
 }
 
 spotbugsTest {
-	spotbugsTest.enabled = false
+    spotbugsTest.enabled = false
 }
 
 jacocoTestReport {
@@ -139,5 +139,16 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
         }
+    }
+}
+
+if (System.getenv("GPG_KEY_ID")) {
+    signing {
+        useInMemoryPgpKeys(
+                System.getenv("GPG_KEY_ID"),
+                System.getenv("GPG_PRIVATE_KEY"),
+                System.getenv("GPG_PRIVATE_KEY_PASSWORD")
+        )
+        sign publishing.publications
     }
 }
