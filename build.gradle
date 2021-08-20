@@ -2,7 +2,6 @@ buildscript {
     repositories { mavenCentral() }
     dependencies {
         classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:6.0.0'
-        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.30.0'
     }
 }
 plugins {
@@ -12,12 +11,13 @@ plugins {
     id 'codenarc'
     id 'checkstyle'
     id 'maven-publish'
-    id 'com.bmuschko.nexus' version '2.3.1'
+    id 'signing'
+    id 'java-library'
+    id 'io.github.gradle-nexus.publish-plugin' version '1.0.0'
     id 'nebula.optional-base' version '6.0.0'
     id 'com.github.kt3k.coveralls' version '2.12.0'
     id 'pl.allegro.tech.build.axion-release' version '1.13.3'
 }
-apply plugin: 'io.codearte.nexus-staging'
 
 scmVersion {
     tag { prefix = project.name + '-' }
@@ -91,53 +91,52 @@ jacocoTestReport {
     }
 }
 
-nexusStaging {
-    packageGroup = 'pl.allegro'
-    numberOfRetries = 15
-    delayBetweenRetriesInMillis = 5000
-}
-
-modifyPom {
-    project {
-        name 'Spring Boot Starter Handlebars'
-        description 'Spring Boot auto-configuration for Handlebars template engine'
-        url 'https://github.com/allegro/handlebars-spring-boot-starter'
-        inceptionYear '2015'
-
-        scm {
-            url 'https://github.com/allegro/handlebars-spring-boot-starter'
-            connection 'scm:git@github.com:allegro/handlebars-spring-boot-starter.git'
-            developerConnection 'scm:git@github.com:allegro/handlebars-spring-boot-starter.git'
-        }
-
-        licenses {
-            license {
-                name 'The Apache Software License, Version 2.0'
-                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-            }
-        }
-
-        developers {
-            developer {
-                id 'plesiecki'
-                name 'Paweł Lesiecki'
-            }
-        }
-
-        project.optionalDeps.each { dep ->
-            dependencies.find { it.artifactId == dep.name }.optional = true
-        }
-    }
-}
-
 test {
     useJUnitPlatform()
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        sonatype(MavenPublication) {
             from components.java
+
+            pom {
+                name = 'Spring Boot Starter Handlebars'
+                description = 'Spring Boot auto-configuration for Handlebars template engine'
+                url = 'https://github.com/allegro/handlebars-spring-boot-starter'
+                inceptionYear = '2015'
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "plesiecki"
+                        name = "Paweł Lesiecki"
+                    }
+                }
+                scm {
+                    connection = "scm:svn:http://subversion.example.com/svn/project/trunk/"
+                    developerConnection = "scm:git@github.com:allegro/handlebars-spring-boot-starter.git"
+                    url = "https://github.com/allegro/handlebars-spring-boot-starter"
+                }
+            }
+        }
+    }
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = System.getenv("SONATYPE_USERNAME")
+            password = System.getenv("SONATYPE_PASSWORD")
         }
     }
 }
