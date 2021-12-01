@@ -30,7 +30,7 @@ ext {
     jodaVersion = '2.10.10'
     spockVersion = '2.0-groovy-3.0'
     handlebarsVersion = '4.2.0'
-    springBootVersion = '2.5.3'
+    springBootVersion = '2.6.1'
 }
 
 allprojects {

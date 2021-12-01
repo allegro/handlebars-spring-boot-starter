@@ -40,6 +40,15 @@ public class HandlebarsAutoConfiguration {
 
     @Configuration
     protected static class HandlebarsCacheConfiguration {
+        @Bean
+        @ConditionalOnMissingBean
+        public TemplateCache templateCache() {
+            return new GuavaTemplateCache(newBuilder().<TemplateSource, Template>build());
+        }
+    }
+
+    @Configuration
+    protected static class HandlebarsCachingStrategyConfiguration {
         @Autowired
         private HandlebarsViewResolver handlebarsViewResolver;
 
@@ -51,12 +60,6 @@ public class HandlebarsAutoConfiguration {
             if (handlebarsViewResolver.isCache()) {
                 handlebarsViewResolver.getHandlebars().with(templateCacheInstance);
             }
-        }
-
-        @Bean
-        @ConditionalOnMissingBean
-        public TemplateCache templateCache() {
-            return new GuavaTemplateCache(newBuilder().<TemplateSource, Template>build());
         }
     }
 
