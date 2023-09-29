@@ -1,7 +1,7 @@
 Spring Boot Starter Handlebars
 ====
 
-[![Build Status](https://travis-ci.org/allegro/handlebars-spring-boot-starter.svg?branch=master)](https://travis-ci.org/allegro/handlebars-spring-boot-starter)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/allegro/handlebars-spring-boot-starter/gradle.yml)](https://github.com/allegro/handlebars-spring-boot-starter/actions/workflows/gradle.yml)
 [![Coverage Status](https://coveralls.io/repos/allegro/handlebars-spring-boot-starter/badge.svg)](https://coveralls.io/r/allegro/handlebars-spring-boot-starter)
 ![Maven Central](https://img.shields.io/maven-central/v/pl.allegro.tech.boot/handlebars-spring-boot-starter.svg)
 
