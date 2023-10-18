@@ -18,7 +18,7 @@ class HandlebarsPropertiesSpec extends Specification {
         properties.applyToMvcViewResolver(viewResolver)
 
         then:
-        viewResolver.valueResolvers.length == 2
+        viewResolver.valueResolvers.size() == 2
         viewResolver.valueResolvers.contains(JavaBeanValueResolver.INSTANCE)
         viewResolver.valueResolvers.contains(MapValueResolver.INSTANCE)
         viewResolver.registerMessageHelper

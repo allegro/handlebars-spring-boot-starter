@@ -29,7 +29,7 @@ project.version = scmVersion.version
 ext {
     jodaVersion = '2.10.10'
     spockVersion = '2.0-groovy-3.0'
-    handlebarsVersion = '4.2.0'
+    handlebarsVersion = '4.3.1'
     springBootVersion = '2.6.1'
 }
 
@@ -39,6 +39,10 @@ allprojects {
     }
     apply plugin: 'groovy'
     sourceCompatibility = 1.8
+
+    test {
+        useJUnitPlatform()
+    }
 }
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion,
@@ -48,7 +52,6 @@ dependencies {
     compile 'joda-time:joda-time:' + jodaVersion, optional
     compile 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
     compile 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
-    compile 'com.github.jknack:handlebars-markdown:' + handlebarsVersion, optional
     compile 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
     compile 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
@@ -89,10 +92,6 @@ jacocoTestReport {
         xml.enabled = true
         html.enabled = true
     }
-}
-
-test {
-    useJUnitPlatform()
 }
 
 java {

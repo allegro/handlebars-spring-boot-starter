@@ -34,11 +34,10 @@ Add any handlebars helper to dependencies and you can start using it.
 dependencies {
     compile 'com.github.jknack:handlebars-helpers:4.2.0',
             'com.github.jknack:handlebars-jackson2:4.2.0',
-            'com.github.jknack:handlebars-humanize:4.2.0',
-            'com.github.jknack:handlebars-markdown:4.2.0'
+            'com.github.jknack:handlebars-humanize:4.2.0'
 }
 ```
-NOTE: Jackson2Helper and MarkdownHelper will register with name `json` and `md` respectively.
+NOTE: Jackson2Helper will register with name `json`.
 Every other helper will register with its default name.
 
 More information about available helpers can be found on
