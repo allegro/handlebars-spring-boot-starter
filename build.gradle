@@ -45,17 +45,17 @@ allprojects {
     }
 }
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion,
-            'com.github.jknack:handlebars-springmvc:' + handlebarsVersion,
-            'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
+    api 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion
+    api 'com.github.jknack:handlebars-springmvc:' + handlebarsVersion
+    api 'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
 
-    compile 'joda-time:joda-time:' + jodaVersion, optional
-    compile 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
-    compile 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
-    compile 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
-    compile 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
+    api 'joda-time:joda-time:' + jodaVersion, optional
+    api 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
+    api 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
+    api 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
+    api 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
-    testCompile 'org.spockframework:spock-core:' + spockVersion,
+    testImplementation 'org.spockframework:spock-core:' + spockVersion,
                 'org.spockframework:spock-spring:' + spockVersion,
                 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
 }
