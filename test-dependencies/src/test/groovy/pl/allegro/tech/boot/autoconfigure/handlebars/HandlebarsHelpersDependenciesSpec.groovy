@@ -32,6 +32,5 @@ class HandlebarsHelpersDependenciesSpec extends Specification {
         resolver.helper('assign')
         resolver.helper('include')
         resolver.helper('camelize')
-        resolver.helper('md')
     }
 }

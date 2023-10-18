@@ -2,7 +2,6 @@ package pl.allegro.tech.boot.autoconfigure.handlebars;
 
 import com.github.jknack.handlebars.HumanizeHelper;
 import com.github.jknack.handlebars.Jackson2Helper;
-import com.github.jknack.handlebars.MarkdownHelper;
 import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.IncludeHelper;
 import com.github.jknack.handlebars.helper.JodaHelper;
@@ -63,19 +62,6 @@ public class HandlebarsHelpersAutoConfiguration {
         @PostConstruct
         public void registerHelper() {
             handlebarsViewResolver.registerHelper("include", IncludeHelper.INSTANCE);
-        }
-    }
-
-    @Configuration
-    @ConditionalOnClass(MarkdownHelper.class)
-    static class MarkdownHelperAutoConfiguration {
-
-        @Autowired
-        private HandlebarsViewResolver handlebarsViewResolver;
-
-        @PostConstruct
-        public void registerHelper() {
-            handlebarsViewResolver.registerHelper("md", MarkdownHelper.INSTANCE);
         }
     }
 
