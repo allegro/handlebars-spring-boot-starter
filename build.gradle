@@ -7,7 +7,7 @@ buildscript {
 plugins {
     id 'pmd'
     id 'jacoco'
-    id 'com.github.spotbugs' version '4.7.1'
+    id 'com.github.spotbugs' version '6.0.23'
     id 'codenarc'
     id 'checkstyle'
     id 'maven-publish'
@@ -27,10 +27,10 @@ project.group = 'pl.allegro.tech.boot'
 project.version = scmVersion.version
 
 ext {
-    jodaVersion = '2.12.5'
+    jodaVersion = '2.13.0'
     spockVersion = '2.3-groovy-3.0'
-    handlebarsVersion = '4.3.1'
-    springBootVersion = '2.7.16'
+    handlebarsVersion = '4.4.0'
+    springBootVersion = '3.3.4'
 }
 
 allprojects {
@@ -38,7 +38,7 @@ allprojects {
         mavenCentral()
     }
     apply plugin: 'groovy'
-    sourceCompatibility = 1.8
+    sourceCompatibility = 17
 
     test {
         useJUnitPlatform()
@@ -51,8 +51,7 @@ dependencies {
 
     api 'joda-time:joda-time:' + jodaVersion, optional
     api 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
-    api 'com.github.jknack:handlebars-humanize:' + handlebarsVersion, optional
-    api 'com.github.jknack:handlebars-jackson2:' + handlebarsVersion, optional
+    api 'com.github.jknack:handlebars-jackson:' + handlebarsVersion, optional
     api 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
     testImplementation 'org.spockframework:spock-core:' + spockVersion,
@@ -61,10 +60,10 @@ dependencies {
 }
 compileJava.dependsOn(processResources)
 
-checkstyle { toolVersion = '8.45' }
+checkstyle { toolVersion = '10.12.4' }
 
 codenarc {
-    toolVersion = '2.1.0'
+    toolVersion = '3.5.0'
     configFile = new File("${projectDir}/config/codenarc/test-rules.groovy")
 }
 
@@ -89,8 +88,8 @@ spotbugsTest {
 
 jacocoTestReport {
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml
+        html
     }
 }
 

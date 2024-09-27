@@ -1,0 +1,2 @@
+pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration
+pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration
