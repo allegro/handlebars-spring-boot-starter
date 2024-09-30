@@ -33,11 +33,10 @@ Add any handlebars helper to dependencies and you can start using it.
 ```gradle
 dependencies {
     compile 'com.github.jknack:handlebars-helpers:4.4.0',
-            'com.github.jknack:handlebars-jackson2:4.4.0',
-            'com.github.jknack:handlebars-humanize:4.4.0'
+            'com.github.jknack:handlebars-jackson:4.4.0'
 }
 ```
-NOTE: Jackson2Helper will register with name `json`.
+NOTE: JacksonHelper will register with name `json`.
 Every other helper will register with its default name.
 
 More information about available helpers can be found on
