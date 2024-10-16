@@ -28,11 +28,10 @@ class HandlebarsHelpersAutoConfigurationSpec extends Specification {
         def resolver = context.getBean(HandlebarsViewResolver)
 
         expect:
-        resolver.with {
+        with(resolver) {
             helper('json')
             helper('assign')
             helper('camelize')
-            helper('md')
             helper('include')
             helper('stringFormat')
         }
