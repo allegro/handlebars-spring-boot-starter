@@ -31,6 +31,5 @@ class HandlebarsHelpersDependenciesSpec extends Specification {
         resolver.helper('json')
         resolver.helper('assign')
         resolver.helper('include')
-        resolver.helper('camelize')
     }
 }

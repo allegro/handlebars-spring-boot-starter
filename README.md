@@ -24,7 +24,7 @@ dependencies {
 
 ## Requirements
 
-Since version 0.3.0 handlebars-spring-boot-starter requires Spring Boot 2.0, Spring Framework 5 and Java 8.
+Since version 0.5.0 handlebars-spring-boot-starter requires Spring Boot 3, Spring Framework 6 and Java 17.
 
 ## Helpers
 
@@ -32,12 +32,11 @@ Spring Boot Starter Handlebars will automatically register handlebars helpers ba
 Add any handlebars helper to dependencies and you can start using it.
 ```gradle
 dependencies {
-    compile 'com.github.jknack:handlebars-helpers:4.2.0',
-            'com.github.jknack:handlebars-jackson2:4.2.0',
-            'com.github.jknack:handlebars-humanize:4.2.0'
+    compile 'com.github.jknack:handlebars-helpers:4.4.0',
+            'com.github.jknack:handlebars-jackson:4.4.0'
 }
 ```
-NOTE: Jackson2Helper will register with name `json`.
+NOTE: JacksonHelper will register with name `json`.
 Every other helper will register with its default name.
 
 More information about available helpers can be found on
