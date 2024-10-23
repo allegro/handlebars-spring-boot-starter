@@ -69,6 +69,7 @@ codenarc {
 
 codenarcTest {
     ignoreFailures true
+    compilationClasspath = codenarcMain.compilationClasspath + sourceSets.test.compileClasspath + sourceSets.test.output
 }
 
 pmd {
