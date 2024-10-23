@@ -89,8 +89,8 @@ spotbugsTest {
 
 jacocoTestReport {
     reports {
-        xml
-        html
+        xml.required = true
+        html.required = true
     }
 }
 
