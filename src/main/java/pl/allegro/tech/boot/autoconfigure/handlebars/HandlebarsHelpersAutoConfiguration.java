@@ -1,33 +1,33 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars;
 
-import com.github.jknack.handlebars.HumanizeHelper;
-import com.github.jknack.handlebars.Jackson2Helper;
-import com.github.jknack.handlebars.helper.AssignHelper;
-import com.github.jknack.handlebars.helper.IncludeHelper;
-import com.github.jknack.handlebars.helper.JodaHelper;
-import com.github.jknack.handlebars.helper.NumberHelper;
+import com.github.jknack.handlebars.helper.ext.AssignHelper;
+import com.github.jknack.handlebars.helper.ext.IncludeHelper;
+import com.github.jknack.handlebars.helper.ext.JodaHelper;
+import com.github.jknack.handlebars.helper.ext.NumberHelper;
 import com.github.jknack.handlebars.helper.StringHelpers;
+import com.github.jknack.handlebars.jackson.JacksonHelper;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 
-@Configuration
+@AutoConfiguration
 @ConditionalOnClass(HandlebarsViewResolver.class)
 @ConditionalOnWebApplication
 public class HandlebarsHelpersAutoConfiguration {
 
     @Configuration
-    @ConditionalOnClass(Jackson2Helper.class)
+    @ConditionalOnClass(JacksonHelper.class)
     static class JsonHelperAutoConfiguration {
 
         @Autowired
@@ -35,7 +35,7 @@ public class HandlebarsHelpersAutoConfiguration {
 
         @PostConstruct
         public void registerHelper() {
-            handlebarsViewResolver.registerHelper("json", Jackson2Helper.INSTANCE);
+            handlebarsViewResolver.registerHelper("json", JacksonHelper.INSTANCE);
         }
     }
 
@@ -75,19 +75,6 @@ public class HandlebarsHelpersAutoConfiguration {
         @PostConstruct
         public void registerHelpers() {
             NumberHelper.register(handlebarsViewResolver.getHandlebars());
-        }
-    }
-
-    @Configuration
-    @ConditionalOnClass(HumanizeHelper.class)
-    static class HumanizeHelpersAutoConfiguration {
-
-        @Autowired
-        private HandlebarsViewResolver handlebarsViewResolver;
-
-        @PostConstruct
-        public void registerHelpers() {
-            HumanizeHelper.register(handlebarsViewResolver.getHandlebars());
         }
     }
 

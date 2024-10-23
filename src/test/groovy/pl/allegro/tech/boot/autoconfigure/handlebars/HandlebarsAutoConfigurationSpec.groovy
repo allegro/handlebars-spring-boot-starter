@@ -2,14 +2,13 @@ package pl.allegro.tech.boot.autoconfigure.handlebars
 
 import static org.springframework.web.servlet.support.RequestContext.WEB_APPLICATION_CONTEXT_ATTRIBUTE
 
-import com.github.jknack.handlebars.cache.GuavaTemplateCache
+import com.github.jknack.handlebars.guava.GuavaTemplateCache
 import com.github.jknack.handlebars.cache.HighConcurrencyTemplateCache
 import com.github.jknack.handlebars.cache.NullTemplateCache
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver
 import com.github.jknack.handlebars.springmvc.SpringTemplateLoader
 import org.springframework.beans.factory.NoSuchBeanDefinitionException
-import org.springframework.boot.test.util.TestPropertyValues
 import org.springframework.context.annotation.Bean
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse

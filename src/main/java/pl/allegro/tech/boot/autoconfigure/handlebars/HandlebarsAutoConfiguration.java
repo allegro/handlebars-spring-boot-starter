@@ -1,12 +1,13 @@
 package pl.allegro.tech.boot.autoconfigure.handlebars;
 
 import com.github.jknack.handlebars.Template;
-import com.github.jknack.handlebars.cache.GuavaTemplateCache;
 import com.github.jknack.handlebars.cache.TemplateCache;
+import com.github.jknack.handlebars.guava.GuavaTemplateCache;
 import com.github.jknack.handlebars.io.TemplateLoader;
 import com.github.jknack.handlebars.io.TemplateSource;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,12 +16,12 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import static com.google.common.cache.CacheBuilder.newBuilder;
 
+@AutoConfiguration
 @ConditionalOnProperty(prefix = "handlebars", value = "enabled", havingValue = "true", matchIfMissing = true)
-@Configuration
 @EnableConfigurationProperties(HandlebarsProperties.class)
 @ConditionalOnWebApplication
 public class HandlebarsAutoConfiguration {

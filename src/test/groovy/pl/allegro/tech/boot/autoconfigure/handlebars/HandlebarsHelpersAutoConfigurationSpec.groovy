@@ -31,7 +31,6 @@ class HandlebarsHelpersAutoConfigurationSpec extends Specification {
         with(resolver) {
             helper('json')
             helper('assign')
-            helper('camelize')
             helper('include')
             helper('stringFormat')
         }
