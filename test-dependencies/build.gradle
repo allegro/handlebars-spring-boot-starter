@@ -1,6 +1,6 @@
 dependencies {
     testImplementation(parent) { exclude module: 'joda-time' }
-    testImplementation(libs.spock.core)
-    testImplementation 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
+    testImplementation libs.spock.core
+    testImplementation libs.spring.boot.starter.web
+    testImplementation libs.spring.boot.starter.test
 }

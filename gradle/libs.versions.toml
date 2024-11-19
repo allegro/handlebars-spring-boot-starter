@@ -1,6 +1,31 @@
 [versions]
 spock = "2.3-groovy-3.0"
+joda = "2.13.0"
+handlebars = "4.4.0"
+springBoot = "3.3.4"
+spotbugsGradlePlugin = "6.0.23"
+nexusPublishGradlePlugin = "1.0.0"
+nebulaOptionalGradlePlugin = "6.0.0"
+coverallsGradlePlugin = "2.12.0"
+axionReleaseGradlePlugin = "1.13.3"
+nebulaExtra = "6.0.0"
 
 [libraries]
 spock-core = { group = "org.spockframework", name = "spock-core", version.ref = "spock" }
 spock-spring = { group = "org.spockframework", name = "spock-spring", version.ref = "spock" }
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "springBoot" }
+handlebars-springmvc = { group = "com.github.jknack", name = "handlebars-springmvc", version.ref = "handlebars" }
+handlebars-guava-cache = { group = "com.github.jknack", name = "handlebars-guava-cache", version.ref = "handlebars" }
+joda-time = { group = "joda-time", name = "joda-time", version.ref = "joda" }
+handlebars-helpers = { group = "com.github.jknack", name = "handlebars-helpers", version.ref = "handlebars" }
+handlebars-jackson = { group = "com.github.jknack", name = "handlebars-jackson", version.ref = "handlebars" }
+spring-boot-configuration-processor = { group = "org.springframework.boot", name = "spring-boot-configuration-processor", version.ref = "springBoot" }
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "springBoot" }
+nebula-extra = { group = "com.netflix.nebula", name = "gradle-extra-configurations-plugin", version.ref = "nebulaExtra" }
+
+[plugins]
+spotbugs = { id = "com.github.spotbugs", version.ref = "spotbugsGradlePlugin" }
+nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPublishGradlePlugin" }
+nebula-optional = { id = "nebula.optional-base", version.ref = "nebulaOptionalGradlePlugin" }
+coveralls = { id = "com.github.kt3k.coveralls", version.ref = "coverallsGradlePlugin" }
+axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axionReleaseGradlePlugin" }
