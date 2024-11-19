@@ -25,7 +25,6 @@ nebula-extra = { group = "com.netflix.nebula", name = "gradle-extra-configuratio
 
 [bundles]
 spock = ["spock-core", "spock-spring"]
-handlebars = ["handlebars-springmvc", "handlebars-guava-cache", "handlebars-helpers", "handlebars-jackson"]
 
 [plugins]
 spotbugs = { id = "com.github.spotbugs", version.ref = "spotbugsGradlePlugin" }

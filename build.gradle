@@ -40,9 +40,11 @@ allprojects {
 dependencies {
     api libs.spring.boot.starter.web
     api libs.handlebars.springmvc
-    api libs.bundles.handlebars
+    api libs.handlebars.guava.cache
 
     api libs.joda.time, optional
+    api libs.handlebars.helpers, optional
+    api libs.handlebars.jackson, optional
     api libs.spring.boot.configuration.processor, optional
 
     testImplementation libs.bundles.spock
