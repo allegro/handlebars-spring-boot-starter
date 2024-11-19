@@ -28,7 +28,6 @@ project.version = scmVersion.version
 
 ext {
     jodaVersion = '2.13.0'
-    spockVersion = '2.3-groovy-3.0'
     handlebarsVersion = '4.4.0'
     springBootVersion = '3.3.4'
 }
@@ -54,9 +53,9 @@ dependencies {
     api 'com.github.jknack:handlebars-jackson:' + handlebarsVersion, optional
     api 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
 
-    testImplementation 'org.spockframework:spock-core:' + spockVersion,
-                'org.spockframework:spock-spring:' + spockVersion,
-                'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
+    testImplementation(libs.spock.core)
+    testImplementation(libs.spock.spring)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
 }
 compileJava.dependsOn(processResources)
 

@@ -1,0 +1,6 @@
+[versions]
+spock = "2.3-groovy-3.0"
+
+[libraries]
+spock-core = { group = "org.spockframework", name = "spock-core", version.ref = "spock" }
+spock-spring = { group = "org.spockframework", name = "spock-spring", version.ref = "spock" }
