@@ -1,22 +1,22 @@
 buildscript {
     repositories { mavenCentral() }
     dependencies {
-        classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:6.0.0'
+        classpath libs.nebula.extra
     }
 }
 plugins {
     id 'pmd'
     id 'jacoco'
-    id 'com.github.spotbugs' version '6.0.23'
+    alias libs.plugins.spotbugs
     id 'codenarc'
     id 'checkstyle'
     id 'maven-publish'
     id 'signing'
     id 'java-library'
-    id 'io.github.gradle-nexus.publish-plugin' version '1.0.0'
-    id 'nebula.optional-base' version '6.0.0'
-    id 'com.github.kt3k.coveralls' version '2.12.0'
-    id 'pl.allegro.tech.build.axion-release' version '1.13.3'
+    alias libs.plugins.nexus.publish
+    alias libs.plugins.nebula.optional
+    alias libs.plugins.coveralls
+    alias libs.plugins.axion.release
 }
 
 scmVersion {
@@ -25,13 +25,6 @@ scmVersion {
 }
 project.group = 'pl.allegro.tech.boot'
 project.version = scmVersion.version
-
-ext {
-    jodaVersion = '2.13.0'
-    spockVersion = '2.3-groovy-3.0'
-    handlebarsVersion = '4.4.0'
-    springBootVersion = '3.3.4'
-}
 
 allprojects {
     repositories {
@@ -45,18 +38,17 @@ allprojects {
     }
 }
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-web:' + springBootVersion
-    api 'com.github.jknack:handlebars-springmvc:' + handlebarsVersion
-    api 'com.github.jknack:handlebars-guava-cache:' + handlebarsVersion
+    api libs.spring.boot.starter.web
+    api libs.handlebars.springmvc
+    api libs.handlebars.guava.cache
 
-    api 'joda-time:joda-time:' + jodaVersion, optional
-    api 'com.github.jknack:handlebars-helpers:' + handlebarsVersion, optional
-    api 'com.github.jknack:handlebars-jackson:' + handlebarsVersion, optional
-    api 'org.springframework.boot:spring-boot-configuration-processor:' + springBootVersion, optional
+    api libs.joda.time, optional
+    api libs.handlebars.helpers, optional
+    api libs.handlebars.jackson, optional
+    api libs.spring.boot.configuration.processor, optional
 
-    testImplementation 'org.spockframework:spock-core:' + spockVersion,
-                'org.spockframework:spock-spring:' + spockVersion,
-                'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
+    testImplementation libs.bundles.spock
+    testImplementation libs.spring.boot.starter.test
 }
 compileJava.dependsOn(processResources)
 
