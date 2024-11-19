@@ -40,15 +40,12 @@ allprojects {
 dependencies {
     api libs.spring.boot.starter.web
     api libs.handlebars.springmvc
-    api libs.handlebars.guava.cache
+    api libs.bundles.handlebars
 
     api libs.joda.time, optional
-    api libs.handlebars.helpers
-    api libs.handlebars.jackson
     api libs.spring.boot.configuration.processor, optional
 
-    testImplementation libs.spock.core
-    testImplementation libs.spock.spring
+    testImplementation libs.bundles.spock
     testImplementation libs.spring.boot.starter.test
 }
 compileJava.dependsOn(processResources)
