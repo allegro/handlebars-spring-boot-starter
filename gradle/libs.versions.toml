@@ -1,5 +1,5 @@
 [versions]
-spock = "2.3-groovy-3.0"
+spock = "2.3-groovy-4.0"
 joda = "2.13.0"
 handlebars = "4.4.0"
 springBoot = "3.3.4"
