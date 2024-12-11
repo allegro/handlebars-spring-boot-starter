@@ -8,7 +8,7 @@ nexusPublishGradlePlugin = "1.0.0"
 nebulaOptionalGradlePlugin = "6.0.0"
 coverallsGradlePlugin = "2.12.0"
 axionReleaseGradlePlugin = "1.13.3"
-nebulaExtra = "6.0.0"
+nebulaExtra = "10.0.1"
 
 [libraries]
 spock-core = { group = "org.spockframework", name = "spock-core", version.ref = "spock" }
