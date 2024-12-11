@@ -9,5 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    allow:
-      - dependency-name: "org.spockframework:*"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
